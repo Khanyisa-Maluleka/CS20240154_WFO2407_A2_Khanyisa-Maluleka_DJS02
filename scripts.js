@@ -12,9 +12,14 @@ form.addEventListener("submit", (event) => {
   }
 
   if (Number(divider) === 0) {
-    console.error("Division by")
+    console.error("Division by zero is an error")
     result.innerText = "Division not performed. Invalid number provided. Try again"
     return;
+  }
+
+  if (isNaN(dividend) || isNaN(divider)) {
+    console.error("Input not numeric")
+    document.body.innerText = "Something critical went wrong. Please reload the page"
   }
 
   result.innerText = Math.floor(dividend / divider);
